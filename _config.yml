@@ -17,8 +17,6 @@ sass:
 destination: public
 markdown: kramdown
 
-theme: minima
-
 gems:
   - jekyll-feed
 exclude:

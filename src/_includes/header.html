@@ -1,0 +1,35 @@
+<header role="banner">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        {% assign default_paths = site.pages | map: "path" %}
+        {% assign page_paths = site.header_pages | default: default_paths %}
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">{{ site.title | escape }}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href='{{ "/" | relative_url }}'>Cotton Fox UA</a>
+            </div>
+
+            {% if page_paths %}
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    {% for path in page_paths %}
+                    {% assign my_page = site.pages | where: "path", path | first %}
+                    {% if my_page.title %}
+                    <li>
+                        <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div><!--/.nav-collapse -->
+            {% endif %}
+        </div>
+    </nav>
+</header>

@@ -13,7 +13,8 @@
     "firebase:login": "npm-run firebase login",
     "clean:vendor": "npm-run rimraf ./src/assets/vendor",
     "clean:app": "npm-run rimraf ./src/assets/app",
-    "clean": "npm run clean:vendor && npm run clean:app"
+    "clean:public": "npm-run rimraf ./public",
+    "clean": "npm run clean:public && npm run clean:vendor && npm run clean:app"
   },
   "dependencies": {
     "angular": "^1.6.3",
