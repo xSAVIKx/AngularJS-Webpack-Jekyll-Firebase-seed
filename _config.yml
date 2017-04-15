@@ -9,6 +9,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 source: src
+sass:
+  load_paths:
+    - _sass
+    - ../node_modules/bootstrap-sass/assets/stylesheets
+
 destination: public
 markdown: kramdown
 

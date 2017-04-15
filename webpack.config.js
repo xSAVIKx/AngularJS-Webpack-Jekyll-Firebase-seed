@@ -1,5 +1,6 @@
 'use strict';
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 const uglifyJsConfig = {
     compress: {
@@ -20,13 +21,37 @@ const uglifyJsConfig = {
     sourceMap: true
 };
 const entry = {
-    app: path.resolve(__dirname, './app/app.js'), // angularJS application entry point
+    app: r('./app/app.js'), // angularJS application entry point
     vendor: ['angular'] // application specific vendors
+};
+const copyBootstrapFonts = {
+    from: r('node_modules/bootstrap-sass/assets/fonts'),
+    to: r('src/assets/vendor/bootstrap/fonts'),
+    flatten: true,
+    force: true
+};
+const copyBootstrapJs = {
+    from: r('node_modules/bootstrap-sass/assets/javascripts/*.js'),
+    to: r('src/assets/vendor/bootstrap/javascripts'),
+    force: true,
+    flatten: true
+};
+const copyBootstrapJqueryJs = {
+    from: r('node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js'),
+    to: r('src/assets/vendor/bootstrap/javascripts/bootstrap'),
+    force: true,
+    flatten: true
+};
+const copyJquery = {
+    from: r('node_modules/jquery/dist/jquery*'),
+    to: r('src/assets/vendor/jquery/'),
+    flatten: true,
+    force: true
 };
 const config = {
     entry: entry,
     output: {
-        path: path.resolve(__dirname, './src/assets/javascripts/'), // output folder for the bundles (it's actually inside folder that is watched by Jekyll)
+        path: r('./src/assets/app/'), // output folder for the bundles (it's actually inside folder that is watched by Jekyll)
         filename: 'bundle.js',
         sourceMapFilename: 'bundle.js.map'
     },
@@ -42,7 +67,12 @@ const config = {
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin(uglifyJsConfig),
-        new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'}) // this plugin merge all vendors into the vendor bundle
+        new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'}), // this plugin merge all vendors into the vendor bundle
+        new CopyWebpackPlugin([copyBootstrapFonts, copyBootstrapJs, copyJquery, copyBootstrapJqueryJs])
     ]
 };
 module.exports = config;
+
+function r(relativePath) {
+    return path.resolve(__dirname, relativePath);
+}
