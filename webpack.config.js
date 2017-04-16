@@ -24,27 +24,27 @@ const entry = {
     app: r('./app/app.js'), // angularJS application entry point
     vendor: ['angular'] // application specific vendors
 };
-const copyBootstrapFonts = {
-    from: r('node_modules/bootstrap-sass/assets/fonts'),
-    to: r('src/assets/vendor/bootstrap/fonts'),
+const copyFontAwesomeFonts = {
+    from: r('node_modules/font-awesome/fonts'),
+    to: r('src/assets/vendor/font-awesome/fonts'),
     flatten: true,
     force: true
 };
 const copyBootstrapJs = {
-    from: r('node_modules/bootstrap-sass/assets/javascripts/*.js'),
-    to: r('src/assets/vendor/bootstrap/javascripts'),
+    from: r('node_modules/bootstrap/dist/js/*.js'),
+    to: r('src/assets/vendor/bootstrap/js/'),
     force: true,
     flatten: true
 };
-const copyBootstrapJqueryJs = {
-    from: r('node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js'),
-    to: r('src/assets/vendor/bootstrap/javascripts/bootstrap'),
+const copyTetherJs = {
+    from: r('node_modules/tether/dist/js/*.js'),
+    to: r('src/assets/vendor/tether/js/'),
     force: true,
     flatten: true
 };
 const copyJquery = {
     from: r('node_modules/jquery/dist/jquery*'),
-    to: r('src/assets/vendor/jquery/'),
+    to: r('src/assets/vendor/jquery/js/'),
     flatten: true,
     force: true
 };
@@ -68,7 +68,7 @@ const config = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin(uglifyJsConfig),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'}), // this plugin merge all vendors into the vendor bundle
-        new CopyWebpackPlugin([copyBootstrapFonts, copyBootstrapJs, copyJquery, copyBootstrapJqueryJs])
+        new CopyWebpackPlugin([copyBootstrapJs, copyJquery, copyFontAwesomeFonts, copyTetherJs])
     ]
 };
 module.exports = config;

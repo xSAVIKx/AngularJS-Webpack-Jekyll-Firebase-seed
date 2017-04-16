@@ -1,5 +1,6 @@
 title: CottonFoxUA
 email: admin@cottonfoxua.com
+mobile: +38 067 777 77 77
 description: >
   Cotton Fox UA - just started.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -13,7 +14,9 @@ source: src
 sass:
   load_paths:
     - _sass
-    - ../node_modules/bootstrap-sass/assets/stylesheets
+    - ../node_modules/bootstrap/scss
+    - ../node_modules/font-awesome/scss
+#  style: compressed # enable css compression
 
 destination: public
 markdown: kramdown

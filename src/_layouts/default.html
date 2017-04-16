@@ -3,13 +3,10 @@
 
 {% include head.html %}
 <body ng-app="cottonfox" ng-strict-di ng-controller="MainController as ctrl">
-
-{% include header.html %}
+{% include navigation.html %}
 
 <main aria-label="Content">
-    <div class="container">
-        {{ content }}
-    </div>
+    {{ content }}
 </main>
 
 {% include footer.html %}
