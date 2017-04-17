@@ -4,8 +4,8 @@
     <div class="text-center">
         <img class="card-img-top img-fluid responsive-image__placeholder"
              src="/{{ smallest.path }}"
-             alt="{{ original.alt }}">
+             alt="{{ alt }}">
     </div>
-    <div class="responsive-image__delayed" data-class="card-img-top img-fluid"
+    <div class="responsive-image__delayed" data-alt="{{ alt }}" data-class="card-img-top img-fluid"
          data-src="/assets/resized/{width}/{{ original.basename }}"></div>
 </div>

@@ -4,9 +4,14 @@
 // Imports
 @import "font-awesome_custom";
 @import "bootstrap_custom";
-
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   padding-top: 54px;
+  /* Margin bottom by footer height */
+  margin-bottom: ($spacer-x * 2);
 }
 
 @media (min-width: 992px) {
@@ -27,4 +32,11 @@ body {
 
 .card {
   height: 100%;
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

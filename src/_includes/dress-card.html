@@ -5,9 +5,9 @@
     {% endresponsive_image_block %}
     <div class="card-block">
         <h4 class="card-title">{{ dress.title }}</h4>
-        <p class="card-text">{{ dress.description }}</p>
+        <p class="card-text">{{ dress.short_description }}</p>
     </div>
     <div class="card-footer">
-        <a href="#" class="btn btn-primary">Find Out More!</a>
+        <a href="{{ dress.url }}" class="btn btn-primary">Find Out More!</a>
     </div>
 </div>

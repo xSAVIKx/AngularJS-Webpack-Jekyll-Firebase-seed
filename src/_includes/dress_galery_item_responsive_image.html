@@ -1,0 +1,6 @@
+{% assign smallest = resized | sort: 'width' | first %}
+{% assign largest = resized | sort: 'width' | last %}
+
+<a href="/{{ largest.path }}" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+    <img src="/{{ smallest.path }}" class="img-fluid">
+</a>

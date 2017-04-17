@@ -54,6 +54,12 @@ const copyImagerJs = {
     force: true,
     flatten: true
 };
+const copyEkkoLightbox = {
+    from: r('node_modules/ekko-lightbox/dist/*'),
+    to: r('src/assets/vendor/ekko-lightbox/'),
+    force: true,
+    flatten: true
+};
 const config = {
     entry: entry,
     output: {
@@ -74,7 +80,7 @@ const config = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin(uglifyJsConfig),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'}), // this plugin merge all vendors into the vendor bundle
-        new CopyWebpackPlugin([copyBootstrapJs, copyJquery, copyFontAwesomeFonts, copyTetherJs, copyImagerJs])
+        new CopyWebpackPlugin([copyBootstrapJs, copyJquery, copyFontAwesomeFonts, copyTetherJs, copyImagerJs, copyEkkoLightbox])
     ]
 };
 module.exports = config;

@@ -41,4 +41,15 @@
             }
         }
     </style>
+
+    {% if layout.styles %}
+    {% for style in layout.styles %}
+    <link rel="stylesheet" href="{{ style }}">
+    {% endfor %}
+    {% endif %}
+    {% if page.styles %}
+    {% for style in page.styles %}
+    <link rel="stylesheet" href="{{ style }}">
+    {% endfor %}
+    {% endif %}
 </head>

@@ -3,16 +3,39 @@
 <script type="text/javascript" src="/assets/vendor/bootstrap/js/bootstrap.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="/assets/vendor/imager/js/Imager.min.js" charset="utf-8"></script>
 <script>
-        $(document).ready(function(){
-            new Imager(
-                '.responsive-image__delayed',
-                {
-                    availableWidths: [{{ site.responsive_image.sizes | map: 'width' | join: ', ' }}],
+$(document).ready(function(){
+    new Imager(
+        '.responsive-image__delayed',
+        {
+            availableWidths: [{{ site.responsive_image.sizes | map: 'width' | join: ', ' }}],
             onImagesReplaced: function() {
                 $('.responsive-image__placeholder').hide();
             }
-        });
-    })
+        }
+    );
+})
 </script>
-<script type="text/javascript" src="/assets/app/vendor.bundle.js" charset="utf-8"></script>
-<script type="text/javascript" src="/assets/app/bundle.js" charset="utf-8"></script>
+<!--<script type="text/javascript" src="/assets/app/vendor.bundle.js" charset="utf-8"></script>-->
+<!--<script type="text/javascript" src="/assets/app/bundle.js" charset="utf-8"></script>-->
+<!-- Layout scripts -->
+{% if layout.scripts %}
+{% for script in layout.scripts %}
+<script type="text/javascript" src="{{ script }}" charset="utf-8"></script>
+{% endfor %}
+{% endif %}
+{% if layout.inline_scripts %}
+{% for script in layout.inline_scripts %}
+<script type="text/javascript" charset="utf-8">{{ script }}</script>
+{% endfor %}
+{% endif %}
+<!--Page scripts-->
+{% if page.scripts %}
+{% for script in page.scripts %}
+<script type="text/javascript" src="{{ script }}" charset="utf-8"></script>
+{% endfor %}
+{% endif %}
+{% if page.inline_scripts %}
+{% for script in page.inline_scripts %}
+<script type="text/javascript" charset="utf-8">{{ script }}</script>
+{% endfor %}
+{% endif %}

@@ -1,0 +1,46 @@
+---
+layout: default
+scripts:
+  - "/assets/vendor/ekko-lightbox/ekko-lightbox.min.js"
+styles:
+  - "/assets/vendor/ekko-lightbox/ekko-lightbox.min.css"
+inline_scripts:
+  - >
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+        });
+---
+<div class="container">
+    <h1>{{ page.title }}</h1>
+    <div class="row">
+        <div class="offset-md-2 col-md-8">
+            {% assign loopindex = 0 %}
+            {% for image_url in page.images %}
+            {% assign loopindex = loopindex | plus: 1 %}
+            {% assign rowfinder = loopindex | modulo: 4 %}
+            {% if rowfinder == 1 %}
+            <div class="row">
+                {% responsive_image_block %}
+                path: {{ image_url }}
+                template: _includes/dress_galery_item_responsive_image.html
+                {% endresponsive_image_block %}
+                {% elsif rowfinder == 0 %}
+                {% responsive_image_block %}
+                path: {{ image_url }}
+                template: _includes/dress_galery_item_responsive_image.html
+                {% endresponsive_image_block %}
+            </div>
+            {% else %}
+            {% responsive_image_block %}
+            path: {{ image_url }}
+            template: _includes/dress_galery_item_responsive_image.html
+            {% endresponsive_image_block %}
+            {% endif %}
+            {% endfor %}
+            {% if rowfinder != 0 %}
+        </div>
+        {% endif %}
+    </div>
+    <hr/>
+</div>
