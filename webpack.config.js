@@ -48,6 +48,12 @@ const copyJquery = {
     flatten: true,
     force: true
 };
+const copyImagerJs = {
+    from: r('node_modules/imager.js/dist/*.js'),
+    to: r('src/assets/vendor/imager/js/'),
+    force: true,
+    flatten: true
+};
 const config = {
     entry: entry,
     output: {
@@ -68,7 +74,7 @@ const config = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin(uglifyJsConfig),
         new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'}), // this plugin merge all vendors into the vendor bundle
-        new CopyWebpackPlugin([copyBootstrapJs, copyJquery, copyFontAwesomeFonts, copyTetherJs])
+        new CopyWebpackPlugin([copyBootstrapJs, copyJquery, copyFontAwesomeFonts, copyTetherJs, copyImagerJs])
     ]
 };
 module.exports = config;

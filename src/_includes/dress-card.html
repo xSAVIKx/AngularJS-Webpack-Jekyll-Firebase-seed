@@ -1,5 +1,8 @@
 <div class="card">
-    <img class="card-img-top img-fluid" src="{{ dress.main_img }}" alt="{{ dress.title }}">
+    {% responsive_image_block %}
+        path: {{ dress.main_img }}
+        alt: {{ dress.title }}
+    {% endresponsive_image_block %}
     <div class="card-block">
         <h4 class="card-title">{{ dress.title }}</h4>
         <p class="card-text">{{ dress.description }}</p>

@@ -23,6 +23,7 @@ markdown: kramdown
 
 gems:
   - jekyll-feed
+  - jekyll-responsive-image
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -31,4 +32,17 @@ exclude:
 collections:
   dresses:
     output: true
-    permalink: pretty
+
+responsive_image:
+  # [Required]
+  # Path to the image template.
+  template: _includes/responsive-image.html
+  output_path_format: assets/resized/%{width}/%{basename}
+  sizes:
+    - width: 120  # [Required] How wide the resized image will be.
+      quality: 65 # [Optional] Overrides default_quality for this size.
+    - width: 300
+      quality: 80
+    - width: 600
+    - width: 900
+      quality: 90
