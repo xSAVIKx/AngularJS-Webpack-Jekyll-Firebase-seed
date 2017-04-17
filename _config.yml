@@ -27,3 +27,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - .gitignore
+
+collections:
+  dresses:
+    output: true
+    permalink: pretty

@@ -8,8 +8,12 @@ layout: default
     <div class="row">
         <div class="col-sm-8">
             <h2 class="mt-4">What We Do</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi
+                soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat
+                explicabo, maiores!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni
+                in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate.
+                Voluptatum.</p>
             <p>
                 <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
             </p>
@@ -19,46 +23,27 @@ layout: default
         </div>
     </div>
     <!-- /.row -->
-
-    <div class="row">
-        <div class="col-sm-4 my-4">
-            <div class="card">
-                <img class="card-img-top img-fluid" src="/assets/images/1.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+    {% assign loopindex = 0 %}
+    {% for dress in site.dresses %}
+        {% assign loopindex = loopindex | plus: 1 %}
+        {% assign rowfinder = loopindex | modulo: 4 %}
+        {% if rowfinder == 1 %}
+            <div class="row">
+                <div class="col-sm-4 my-4">
+                    {% include dress-card.html %}
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 my-4">
-            <div class="card">
-                <img class="card-img-top img-fluid" src="/assets/images/2.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
+        {% elsif rowfinder == 0 %}
+                <div class="col-sm-4 my-4">
+                    {% include dress-card.html %}
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4 my-4">
-            <div class="card">
-                <img class="card-img-top img-fluid" src="/assets/images/3.jpg" alt="">
-                <div class="card-block">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                </div>
+        {% else %}
+            <div class="col-sm-4 my-4">
+                {% include dress-card.html %}
             </div>
+        {% endif %}
+    {% endfor %}
+    {% if rowfinder != 0 %}
         </div>
-
-    </div>
-    <!-- /.row -->
-
+    {% endif %}
 </div>
