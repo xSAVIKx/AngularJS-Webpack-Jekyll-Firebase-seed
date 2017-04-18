@@ -8,18 +8,59 @@ Check the notes below in order to start development
 * [Node](https://nodejs.org/en/download/package-manager/)
 * [npm-run](https://www.npmjs.com/package/npm-run) - `npm install -g npm-run`
 
+## Install ImageMagick
+
+ImageMagick is used with `jekyll-responsive-image` plugin and should be manually installed before
+plugin gem could be installed.
+
+### Windows
+
+Download ImageMagic 6 (for needed OS architecture) from [here][image_magick_download]. 
+Tested with [this one][image_magick_6_x64] for Win10x64.
+
+Install to some location without spaces, e.g.: `c:\tools\imagemagic`.
+During installation check  be sure to check following checkboxes:
+* Install development headers and libraries for C and C++
+* Install ImageMagicObject OLE Control for VBscript, Visual Basic, and WSH
+
+Then install `rmagic` gem with following command, assuming you've installed image magic into `c\tools\imagemagic`:
+
+```
+gem install rmagick -- --with-opt-dir=c:\tools\imagemagic
+```
+
+[image_magick_download]: https://www.imagemagick.org/download/binaries/
+[image_magick_6_x64]: https://www.imagemagick.org/download/binaries/ImageMagick-6.9.8-3-Q16-x64-dll.exe
+
+### Ubuntu
+
+Run the following commands:
+```bash
+sudo apt-get install libmagickwand-dev
+sudo gem install rmagick
+```
 
 # How to build
+
+Use `npm` scripts in order to build whole website into the `public` directory within repository root folder:
+
+```bash
+npm run build
+```
+
+# How to run DEV server
 
 Use `npm` scripts in order to provide real-time updates of both Angular app
 and Jekyll generated content.
 
 In order to run webpack watcher run:
+
 ```
 npm run webpack:watch
 ```
 
 In order to run Jekyll web server run:
+
 ```
 npm run start
 ```
