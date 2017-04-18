@@ -15,7 +15,10 @@ layout: default
                 in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate.
                 Voluptatum.</p>
             <p>
-                <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
+                <button class="btn btn-primary btn-lg"
+                        onclick="$('html, body').stop().animate({scrollTop: $('#contact-form').offset().top}, 1000);">
+                    Связаться с нами &raquo;
+                </button>
             </p>
         </div>
         <div class="col-sm-4">
@@ -25,25 +28,26 @@ layout: default
     <!-- /.row -->
     {% assign loopindex = 0 %}
     {% for dress in site.dresses %}
-        {% assign loopindex = loopindex | plus: 1 %}
-        {% assign rowfinder = loopindex | modulo: 4 %}
-        {% if rowfinder == 1 %}
-            <div class="row">
-                <div class="col-sm-4 my-4">
-                    {% include dress-card.html %}
-                </div>
+    {% assign loopindex = loopindex | plus: 1 %}
+    {% assign rowfinder = loopindex | modulo: 4 %}
+    {% if rowfinder == 1 %}
+    <div class="row">
+        <div class="col-sm-4 my-4">
+            {% include dress-card.html %}
+        </div>
         {% elsif rowfinder == 0 %}
-                <div class="col-sm-4 my-4">
-                    {% include dress-card.html %}
-                </div>
-            </div>
-        {% else %}
-            <div class="col-sm-4 my-4">
-                {% include dress-card.html %}
-            </div>
-        {% endif %}
+        <div class="col-sm-4 my-4">
+            {% include dress-card.html %}
+        </div>
+    </div>
+    {% else %}
+    <div class="col-sm-4 my-4">
+        {% include dress-card.html %}
+    </div>
+    {% endif %}
     {% endfor %}
     {% if rowfinder != 0 %}
-        </div>
-    {% endif %}
+</div>
+{% endif %}
+{% include contact-form.html %}
 </div>
