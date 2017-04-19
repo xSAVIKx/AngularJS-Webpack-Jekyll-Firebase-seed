@@ -7,6 +7,8 @@ Check the notes below in order to start development
 * [Jekyll](https://jekyllrb.com/docs/installation/)
 * [Node](https://nodejs.org/en/download/package-manager/)
 * [npm-run](https://www.npmjs.com/package/npm-run) - `npm install -g npm-run`
+* [functions](https://github.com/GoogleCloudPlatform/cloud-functions-emulator) - `npm install -g @google-cloud/functions-emulator
+`
 
 ## Install ImageMagick
 

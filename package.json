@@ -10,7 +10,9 @@
     "webpack:watch": "npm-run webpack --watch",
     "start": "npm run build && jekyll serve",
     "deploy": "npm run build && npm-run firebase deploy",
+    "deploy:functions": "npm-run firebase deploy --only functions",
     "firebase:login": "npm-run firebase login",
+    "firebase:config:set": "npm-run firebase functions:config:set ",
     "clean:vendor": "npm-run rimraf ./src/assets/vendor",
     "clean:app": "npm-run rimraf ./src/assets/app",
     "clean:resized": "npm-run rimraf ./src/assets/resized",
@@ -27,6 +29,7 @@
     "tether": "^1.4.0"
   },
   "devDependencies": {
+    "@google-cloud/functions-emulator": "^1.0.0-alpha.16",
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",

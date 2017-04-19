@@ -1,1 +1,5 @@
-{}
+{
+  "projects": {
+    "default": "cottonfoxua-92b61"
+  }
+}
