@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "cottonfoxua-92b61"
+    "prod": "cottonfoxua-92b61",
+    "dev": "cottonfoxua-dev"
   }
 }
